@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import "./globals.css";
 import { Kanit } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const kanit = Kanit({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${kanit.className} bg-main-blue`}>
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
