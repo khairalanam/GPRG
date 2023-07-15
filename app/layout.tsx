@@ -1,3 +1,4 @@
+import Nav from "@/components/Nav";
 import "./globals.css";
 import { Kanit } from "next/font/google";
 
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${kanit.className}`}>{children}</body>
+      <body className={`${kanit.className} bg-main-blue`}>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }
