@@ -1,10 +1,8 @@
-import Nav from "@/components/Nav";
-
-export const metadata = {
+export const metadata: { title: string } = {
   title: "GPRG",
 };
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <>
       <section className="flex flex-col justify-center items-center text-white py-16 gap-6 px-6 md:px-12">
