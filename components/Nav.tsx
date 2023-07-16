@@ -4,6 +4,13 @@ import logo from "@public/Main-Logo.svg";
 import Link from "next/link";
 
 const Nav: React.FC = (): React.JSX.Element => {
+  const navElements: { [key: string]: string } = {
+    Home: "/",
+    About: "/about",
+    GitHub: "/github",
+    Socials: "/socials",
+  };
+
   return (
     <nav className="flex bg-dark-blue px-6 md:px-10 text-white py-4 lg:px-20 lg:py-5 justify-between items-center">
       <section className="flex justify-between items-center gap-3">
@@ -19,26 +26,13 @@ const Nav: React.FC = (): React.JSX.Element => {
         </h1>
       </section>
       <ul className="flex justify-between gap-3 md:gap-4 lg:gap-6 text-[0.75rem] md:text-[1rem]">
-        <li>
-          <Link href="/" className="hover:text-slate-500 transition">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link href="/about" className="hover:text-slate-500 transition">
-            About
-          </Link>
-        </li>
-        <li>
-          <Link href="/github" className="hover:text-slate-500 transition">
-            GitHub
-          </Link>
-        </li>
-        <li>
-          <Link href="/socials" className="hover:text-slate-500 transition">
-            Socials
-          </Link>
-        </li>
+        {Object.entries(navElements).map(([key, value]) => (
+          <li key={key}>
+            <Link href={value} className="hover:text-slate-500 transition">
+              {key}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
