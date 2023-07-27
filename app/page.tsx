@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "GPRG",
@@ -17,6 +18,12 @@ export default function Home(): JSX.Element {
         <h4 className="text-[1rem] text-center font-extralight">
           Use GPRG to make your own custom profile readmes
         </h4>
+        <Link
+          href="/edit"
+          className="border py-4 px-6 rounded-full transition hover:text-main-blue hover:bg-white mt-8 md:text-[1.25rem] md:px-8"
+        >
+          Generate Readme!
+        </Link>
       </section>
     </>
   );
