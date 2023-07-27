@@ -1,5 +1,10 @@
-export const metadata: { title: string } = {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "GPRG",
+  icons: {
+    icon: "/Main-Logo.svg",
+  },
 };
 
 export default function Home(): JSX.Element {
