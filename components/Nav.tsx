@@ -7,7 +7,7 @@ const Nav: React.FC = (): React.JSX.Element => {
   const navElements: { [key: string]: string } = {
     Home: "/",
     About: "/about",
-    GitHub: "/github",
+    GitHub: "https://github.com/khairalanam/GPRG",
     Socials: "/socials",
   };
 
