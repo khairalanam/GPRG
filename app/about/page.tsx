@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "GPRG | About",
   description: "Everything about GPRG",
+  icons: {
+    icon: "/Main-Logo.svg",
+  },
 };
 
 export default function About(): React.JSX.Element {
