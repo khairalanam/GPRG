@@ -19,7 +19,7 @@ export default function Home(): JSX.Element {
           Use GPRG to make your own custom profile readmes
         </h4>
         <Link
-          href="/edit"
+          href="/generate-profile"
           className="border py-4 px-6 rounded-full transition hover:text-main-blue hover:bg-white mt-8 md:text-[1.25rem] md:px-8"
         >
           Generate Readme!
