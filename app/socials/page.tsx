@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "GPRG | Socials",
   description: "Social Handles on GPRG",
+  icons: {
+    icon: "/Main-Logo.svg",
+  },
 };
 
 export default function Socials(): React.JSX.Element {
