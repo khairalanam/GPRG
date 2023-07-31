@@ -1,3 +1,4 @@
+import MainForm from "@/components/MainForm";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function GenerateProfileReadme() {
-  return <h1>hello</h1>;
+  return <MainForm/>;
 }
