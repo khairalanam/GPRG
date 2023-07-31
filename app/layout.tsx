@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${kanit.className} bg-main-blue`}>
+      <body className={`${kanit.className} bg-main-blue relative`}>
         <Nav />
         {children}
         <Footer />
