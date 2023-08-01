@@ -10,6 +10,7 @@ const BannerImageInput: React.FC = (): React.ReactElement => {
   const handleBannerImageChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
+    event.preventDefault();
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
@@ -17,11 +18,15 @@ const BannerImageInput: React.FC = (): React.ReactElement => {
         const imageUrl = reader.result as string;
         setBannerImage(imageUrl);
       };
+      reader.onerror = () => {
+        console.error("Error occurred while reading the image file.");
+      };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleBrowseClick = () => {
+  const handleBrowseClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     if (fileInputRef.current) {
       fileInputRef.current.click();
     }
@@ -42,14 +47,26 @@ const BannerImageInput: React.FC = (): React.ReactElement => {
       />
       <section
         onClick={handleBrowseClick}
-        className="flex gap-4 items-middle justify-center border-[1px] border-red-500 mt-2 w-full px-6 py-10 bg-dark-blue rounded-lg font-extralight max-w-2xl md:py-20 md:text-lg lg:py-40 lg:text-xl"
+        className="flex flex-col justify-center border-[1px] border-none mt-2 w-full px-6 py-10 bg-dark-blue rounded-lg font-extralight max-w-2xl md:py-20 md:text-lg lg:py-40 lg:text-xl items-center"
       >
-        <button className="bg-white text-main-blue rounded-md px-2 font-light border-[0.0625rem] transition hover:bg-main-blue hover:text-white hover:border-white md:px-4 lg:py-1 active:bg-dark-blue">
-          Browse
-        </button>
-        <p>or drag and drop an image here</p>
+        <div className="flex items-center gap-4 w-full justify-center">
+          <button className="bg-white text-main-blue rounded-md px-2 font-light border-[0.0625rem] transition hover:bg-main-blue hover:text-white hover:border-white md:px-4 lg:py-1 active:bg-dark-blue">
+            Browse
+          </button>
+          <p>or drag and drop an image here</p>
+        </div>
+        {bannerImage && (
+          <div className="self-center mt-4">
+            <Image
+              src={bannerImage}
+              alt="Banner"
+              width={100}
+              height={100}
+              className="w-64 h-auto"
+            />
+          </div>
+        )}
       </section>
-      {bannerImage && <Image src={bannerImage} alt="Banner" />}
     </>
   );
 };
