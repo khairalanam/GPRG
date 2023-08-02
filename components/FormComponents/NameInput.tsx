@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const NameInput = () => {
   const [name, setName] = useState("");
   return (
-    <div className="flex flex-col mt-4 max-w-2xl">
+    <div className="flex flex-col mt-10 max-w-2xl">
       <label htmlFor="name" className="mb-2 md:text-lg lg:text-xl">
         Name:
       </label>
