@@ -47,8 +47,8 @@ const RolesInput: React.FC = () => {
   };
 
   return (
-    <>
-      <label htmlFor="role">
+    <section className="flex flex-col mt-10 max-w-2xl">
+      <label htmlFor="role" className="mb-2 md:text-lg lg:text-xl">
         Mention your roles based on your skills (e.g., UI/UX Designer, Frontend
         Developer, etc)
       </label>
@@ -61,9 +61,10 @@ const RolesInput: React.FC = () => {
           onChange={(event) => handleRoleChange(event, role.id)}
           placeholder={`Role ${role.id}`}
           required={role.id <= 2}
+          className="mb-2 bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4 md:mb-3 lg:mb-4"
         />
       ))}
-    </>
+    </section>
   );
 };
 
