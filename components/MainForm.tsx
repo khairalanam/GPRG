@@ -3,6 +3,7 @@ import BannerImageInput from "./FormComponents/BannerImageInput";
 import NameInput from "./FormComponents/NameInput";
 import RolesInput from "./FormComponents/RolesInput";
 import BioInputs from "./FormComponents/BioInputs";
+import ProjectsInput from "./FormComponents/ProjectsInput";
 
 const MainForm = () => {
   return (
@@ -14,6 +15,7 @@ const MainForm = () => {
       <NameInput />
       <RolesInput />
       <BioInputs />
+      <ProjectsInput />
     </form>
   );
 };
