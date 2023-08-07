@@ -1,44 +1,30 @@
 "use client";
 
 import React, { ChangeEvent, useReducer } from "react";
-
-interface Action {
-  type: string;
-  payload: {
-    id: string;
-    value: string;
-  };
-}
-
-interface BioState {
-  placeholder: string;
-  text: string;
-  id: string;
-  value: string;
-}
+import { BioState, Action } from "@/types/ReducerTypes";
 
 const initialState: BioState[] = [
   {
     placeholder: "Mention your city",
-    text: "I'm based in ",
+    text: "I'm based in:",
     id: "place",
     value: "",
   },
   {
     placeholder: "Mention your project",
-    text: "I'm currently working on ",
+    text: "I'm currently working on:",
     id: "project",
     value: "",
   },
   {
     placeholder: "Mention what you are learning",
-    text: "I'm learning ",
+    text: "I'm learning:",
     id: "learning",
     value: "",
   },
 ];
 
-const bioReducer = (state: BioState[], action: Action) => {
+const bioReducer = (state: BioState[], action: Action<string>) => {
   switch (action.type) {
     case "SET_BIO":
       return state.map((bio) =>
@@ -63,16 +49,19 @@ const BioInputs = () => {
   };
 
   return (
-    <section>
+    <section className="flex flex-col mt-10 max-w-2xl">
       {bios.map((bio: BioState) => (
         <>
-          <label htmlFor={bio.id}>{bio.text}</label>
+          <label htmlFor={bio.id} className="mb-2 md:text-lg lg:text-xl">
+            {bio.text}
+          </label>
           <input
             type="text"
             id={bio.id}
             placeholder={bio.placeholder}
             value={bio.value}
             onChange={(event) => handleBioChange(event, bio.id)}
+            className="mb-2 bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4 md:mb-3 lg:mb-4"
           />
         </>
       ))}
