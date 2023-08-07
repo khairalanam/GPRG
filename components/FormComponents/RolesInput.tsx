@@ -1,19 +1,7 @@
 "use client";
 
 import React, { useReducer, ChangeEvent } from "react";
-
-interface RoleState {
-  id: number;
-  value: string;
-}
-
-interface Action {
-  type: string;
-  payload: {
-    id: number;
-    value: string;
-  };
-}
+import { RoleState, Action } from "@/types/ReducerTypes";
 
 const initialState: RoleState[] = [
   { id: 1, value: "" },
@@ -22,7 +10,10 @@ const initialState: RoleState[] = [
   { id: 4, value: "" },
 ];
 
-const rolesReducer = (state: RoleState[], action: Action): RoleState[] => {
+const rolesReducer = (
+  state: RoleState[],
+  action: Action<number>
+): RoleState[] => {
   switch (action.type) {
     case "SET_ROLE":
       return state.map((role) =>
