@@ -1,16 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  FaReact,
-  FaAngular,
-  FaVuejs,
-  FaNodeJs,
-  FaPython,
-  FaJava,
-} from "react-icons/fa";
-
-import { SiDjango, SiExpress, SiRubyonrails, SiSvelte } from "react-icons/si";
+import techStackOptions from "@/data/techStacks";
 
 const TechStackComponent: React.FC = () => {
   const [selectedTechStack, setSelectedTechStack] = useState<string[]>([]);
@@ -58,20 +49,5 @@ const TechStackComponent: React.FC = () => {
     </section>
   );
 };
-
-const techStackOptions = [
-  { label: "React", value: "react", icon: <FaReact /> },
-  { label: "Angular", value: "angular", icon: <FaAngular /> },
-  { label: "Vue.js", value: "vuejs", icon: <FaVuejs /> },
-  { label: "Svelte", value: "svelte", icon: <SiSvelte /> },
-
-  { label: "Node.js", value: "nodejs", icon: <FaNodeJs /> },
-  { label: "Express", value: "expressjs", icon: <SiExpress /> },
-  { label: "Django", value: "django", icon: <SiDjango /> },
-  { label: "Ruby On Rails", value: "rubyonrails", icon: <SiRubyonrails /> },
-
-  { label: "Python", value: "python", icon: <FaPython /> },
-  { label: "Java", value: "java", icon: <FaJava /> },
-];
 
 export default TechStackComponent;
