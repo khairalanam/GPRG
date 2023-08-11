@@ -1,3 +1,4 @@
+import React from "react";
 import { FaJava } from "react-icons/fa";
 
 import {
@@ -39,7 +40,13 @@ import {
   SiVuedotjs,
 } from "react-icons/si";
 
-const techStackOptions = [
+interface TechStack {
+  label: string;
+  value: string;
+  icon: React.JSX.Element;
+}
+
+const techStackOptions: TechStack[] = [
   { label: "React", value: "react", icon: <SiReact /> },
   { label: "Angular", value: "angular", icon: <SiAngular /> },
   { label: "Vue.js", value: "vuejs", icon: <SiVuedotjs /> },
@@ -58,7 +65,7 @@ const techStackOptions = [
   { label: ".NET", value: "dotnet", icon: <SiDotnet /> },
 
   { label: "Tailwind", value: "tailwind", icon: <SiTailwindcss /> },
-  { label: "Bootstrap", value: "bootstrap", icons: <SiBootstrap /> },
+  { label: "Bootstrap", value: "bootstrap", icon: <SiBootstrap /> },
   { label: "Bulma", value: "bulma", icon: <SiBulma /> },
 
   { label: "Python", value: "python", icon: <SiPython /> },
