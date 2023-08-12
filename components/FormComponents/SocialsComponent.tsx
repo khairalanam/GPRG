@@ -1,22 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
-
-interface SocialHandle {
-  label: string;
-  icon: React.JSX.Element;
-}
-
-const socialOptions: SocialHandle[] = [
-  { label: "Twitter", icon: <FaTwitter /> },
-  { label: "LinkedIn", icon: <FaLinkedin /> },
-  { label: "GitHub", icon: <FaGithub /> },
-];
-
-interface SocialLink {
-  [key: string]: string;
-}
+import socialOptions from "@/data/socialHandles";
+import { SocialLink } from "@/types/NormalTypes";
 
 const SocialsComponent: React.FC = () => {
   const [socialHandles, setSocialHandles] = useState<SocialLink>({});
