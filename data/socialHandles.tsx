@@ -1,10 +1,10 @@
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { SocialHandle } from "@/types/NormalTypes";
+import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
 
 const socialOptions: SocialHandle[] = [
-  { label: "Twitter", icon: <FaTwitter /> },
-  { label: "LinkedIn", icon: <FaLinkedin /> },
-  { label: "GitHub", icon: <FaGithub /> },
+  { label: "Twitter", icon: <SiTwitter /> },
+  { label: "LinkedIn", icon: <SiLinkedin /> },
+  { label: "GitHub", icon: <SiGithub /> },
 ];
 
 export default socialOptions;
