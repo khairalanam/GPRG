@@ -5,6 +5,7 @@ import RolesInput from "./FormComponents/RolesInput";
 import BioInputs from "./FormComponents/BioInputs";
 import ProjectsInput from "./FormComponents/ProjectsInput";
 import TechStackComponent from "./FormComponents/TechStackComponent";
+import SocialsComponent from "./FormComponents/SocialsComponent";
 
 const MainForm = () => {
   return (
@@ -18,6 +19,7 @@ const MainForm = () => {
       <BioInputs />
       <ProjectsInput />
       <TechStackComponent />
+      <SocialsComponent />
     </form>
   );
 };
