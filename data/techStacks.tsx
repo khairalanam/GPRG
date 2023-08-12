@@ -1,5 +1,6 @@
 import React from "react";
 import { FaJava } from "react-icons/fa";
+import { TechStack } from "@/types/NormalTypes";
 
 import {
   SiAlpinedotjs,
@@ -44,12 +45,6 @@ import {
   SiTypescript,
   SiVuedotjs,
 } from "react-icons/si";
-
-interface TechStack {
-  label: string;
-  value: string;
-  icon: React.JSX.Element;
-}
 
 const techStackOptions: TechStack[] = [
   { label: "React", value: "react", icon: <SiReact /> },
