@@ -32,7 +32,7 @@ const TechStackComponent: React.FC = () => {
               className="hidden"
             />
             <div
-              className={`w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 flex transition items-center justify-center  rounded-lg md:text-xl lg:text-3xl ${
+              className={`w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 flex transition items-center justify-center rounded-lg md:text-xl lg:text-3xl ${
                 selectedTechStack.includes(tech.value)
                   ? "bg-white text-dark-blue"
                   : "bg-dark-blue text-white"
