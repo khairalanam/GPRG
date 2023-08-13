@@ -6,6 +6,7 @@ import BioInputs from "./FormComponents/BioInputs";
 import ProjectsInput from "./FormComponents/ProjectsInput";
 import TechStackComponent from "./FormComponents/TechStackComponent";
 import SocialsComponent from "./FormComponents/SocialsComponent";
+import IndustryTagComponent from "./FormComponents/IndustryTagComponent";
 
 const MainForm = () => {
   return (
@@ -20,6 +21,7 @@ const MainForm = () => {
       <ProjectsInput />
       <TechStackComponent />
       <SocialsComponent />
+      <IndustryTagComponent />
     </form>
   );
 };
