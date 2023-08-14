@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useReducer, ChangeEvent } from "react";
+import React, { useReducer, ChangeEvent, useEffect } from "react";
 
 import { Field, ProjectAction, ProjectState } from "@/types/ReducerTypes";
+import { FormState } from "@/types/NormalTypes";
 
 const initialState: ProjectState[] = [
   { id: 1, title: "", link: "", desc: "" },
@@ -24,8 +25,13 @@ const projectsReducer = (
   }
 };
 
-const ProjectsInput: React.FC = () => {
+const ProjectsInput: React.FC<FormState> = ({ formData, setFormData }) => {
   const [projects, dispatch] = useReducer(projectsReducer, initialState);
+
+  useEffect(
+    () => setFormData({ ...formData, projects }),
+    [formData, setFormData, projects]
+  );
 
   const handleProjectChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

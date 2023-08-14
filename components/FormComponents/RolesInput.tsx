@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useReducer, ChangeEvent } from "react";
+import React, { useReducer, ChangeEvent, useEffect } from "react";
 import { RoleState, Action } from "@/types/ReducerTypes";
+import { FormState, UpdateRoles } from "@/types/NormalTypes";
 
 const initialState: RoleState[] = [
   { id: 1, value: "" },
@@ -26,7 +27,11 @@ const rolesReducer = (
   }
 };
 
-const RolesInput: React.FC = () => {
+const RolesInput: React.FC<FormState & UpdateRoles> = ({
+  formData,
+  setFormData,
+  updateRoles,
+}) => {
   const [roles, dispatch] = useReducer(rolesReducer, initialState);
 
   const handleRoleChange = (
@@ -36,6 +41,8 @@ const RolesInput: React.FC = () => {
     const value = event.target.value;
     dispatch({ type: "SET_ROLE", payload: { id, value } });
   };
+
+  useEffect(() => updateRoles(roles), [roles, updateRoles]);
 
   return (
     <section className="flex flex-col mt-10 max-w-2xl">

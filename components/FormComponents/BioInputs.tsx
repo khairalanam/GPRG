@@ -1,7 +1,8 @@
 "use client";
 
-import React, { ChangeEvent, useReducer } from "react";
+import React, { ChangeEvent, useEffect, useReducer } from "react";
 import { BioState, Action } from "@/types/ReducerTypes";
+import { FormState } from "@/types/NormalTypes";
 
 const initialState: BioState[] = [
   {
@@ -37,7 +38,7 @@ const bioReducer = (state: BioState[], action: Action<string>) => {
   }
 };
 
-const BioInputs = () => {
+const BioInputs: React.FC<FormState> = ({ formData, setFormData }) => {
   const [bios, dispatch] = useReducer(bioReducer, initialState);
 
   const handleBioChange = (
@@ -47,6 +48,11 @@ const BioInputs = () => {
     const value = event.target.value;
     dispatch({ type: "SET_BIO", payload: { id, value } });
   };
+
+  useEffect(
+    () => setFormData({ ...formData, bios }),
+    [bios, setFormData, formData]
+  );
 
   return (
     <section className="flex flex-col mt-10 max-w-2xl">

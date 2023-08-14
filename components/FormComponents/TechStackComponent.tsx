@@ -2,16 +2,18 @@
 
 import React, { useState } from "react";
 import techStackOptions from "@/data/techStacks";
+import { FormState } from "@/types/NormalTypes";
 
-const TechStackComponent: React.FC = () => {
+const TechStackComponent: React.FC<FormState> = ({ formData, setFormData }) => {
   const [selectedTechStack, setSelectedTechStack] = useState<string[]>([]);
 
   const handleTechStackChange = (tech: string) => {
-    setSelectedTechStack((prevSelected) =>
-      prevSelected.includes(tech)
-        ? prevSelected.filter((t) => t !== tech)
-        : [...prevSelected, tech]
-    );
+    const updatedTechStack = selectedTechStack.includes(tech)
+      ? selectedTechStack.filter((t) => t !== tech)
+      : [...selectedTechStack, tech];
+
+    setSelectedTechStack(updatedTechStack);
+    setFormData({ ...formData, techStacks: updatedTechStack });
   };
 
   return (
