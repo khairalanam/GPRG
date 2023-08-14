@@ -1,3 +1,5 @@
+import { BioState, ProjectState, RoleState } from "./ReducerTypes";
+
 export interface TechStack {
   label: string;
   value: string;
@@ -11,4 +13,24 @@ export interface SocialHandle {
 
 export interface SocialLink {
   [key: string]: string;
+}
+
+export interface FormData {
+  bannerImage: string;
+  name: string;
+  roles: RoleState[];
+  bios: BioState[];
+  projects: ProjectState[];
+  techStacks: string[];
+  socialHandles: SocialLink;
+  industryTags: string[];
+}
+
+export interface FormState {
+  formData: FormData;
+  setFormData: Function;
+}
+
+export interface UpdateRoles {
+  updateRoles: (roles: RoleState[]) => void;
 }
