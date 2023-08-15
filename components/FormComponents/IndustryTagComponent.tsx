@@ -1,10 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa";
 import industryTags from "@/data/industryTags";
+import { FormState } from "@/types/NormalTypes";
 
-const IndustryTagComponent: React.FC = () => {
+const IndustryTagComponent: React.FC<FormState> = ({
+  formData,
+  setFormData,
+}) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
@@ -13,6 +17,11 @@ const IndustryTagComponent: React.FC = () => {
       setSelectedTags([...selectedTags, tag]);
     }
   };
+
+  useEffect(
+    () => setFormData({ ...formData, industryTags: selectedTags }),
+    [setFormData, formData, selectedTags]
+  );
 
   const handleTagRemove = (tag: string) => {
     setSelectedTags(selectedTags.filter((t) => t !== tag));
