@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import socialOptions from "@/data/socialHandles";
-import { SocialLink } from "@/types/NormalTypes";
+import { FormState, SocialLink } from "@/types/NormalTypes";
 
-const SocialsComponent: React.FC = () => {
+const SocialsComponent: React.FC<FormState> = ({ formData, setFormData }) => {
   const [socialHandles, setSocialHandles] = useState<SocialLink>({});
 
   const handleSocialInputChange = (
@@ -13,6 +13,11 @@ const SocialsComponent: React.FC = () => {
     const { name, value } = event.target;
     setSocialHandles((prevHandles) => ({ ...prevHandles, [name]: value }));
   };
+
+  useEffect(
+    () => setFormData({ ...formData, socialHandles }),
+    [formData, setFormData, socialHandles]
+  );
 
   return (
     <section className="max-w-2xl mt-10">
