@@ -49,15 +49,15 @@ const BioInputs: React.FC<FormState> = ({ formData, setFormData }) => {
     dispatch({ type: "SET_BIO", payload: { id, value } });
   };
 
-  useEffect(
-    () => setFormData({ ...formData, bios }),
-    [bios, setFormData, formData]
-  );
+  useEffect(() => {
+    if (JSON.stringify(bios) !== JSON.stringify(formData.bios))
+      setFormData({ ...formData, bios });
+  }, [bios, setFormData, formData]);
 
   return (
     <section className="flex flex-col mt-10 max-w-2xl">
       {bios.map((bio: BioState) => (
-        <>
+        <div key={bio.id}>
           <label htmlFor={bio.id} className="mb-2 md:text-lg lg:text-xl">
             {bio.text}
           </label>
@@ -69,7 +69,7 @@ const BioInputs: React.FC<FormState> = ({ formData, setFormData }) => {
             onChange={(event) => handleBioChange(event, bio.id)}
             className="mb-2 bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4 md:mb-3 lg:mb-4"
           />
-        </>
+        </div>
       ))}
     </section>
   );

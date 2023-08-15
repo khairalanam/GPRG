@@ -14,10 +14,12 @@ const SocialsComponent: React.FC<FormState> = ({ formData, setFormData }) => {
     setSocialHandles((prevHandles) => ({ ...prevHandles, [name]: value }));
   };
 
-  useEffect(
-    () => setFormData({ ...formData, socialHandles }),
-    [formData, setFormData, socialHandles]
-  );
+  useEffect(() => {
+    if (
+      JSON.stringify(socialHandles) !== JSON.stringify(formData.socialHandles)
+    )
+      setFormData({ ...formData, socialHandles });
+  }, [formData, setFormData, socialHandles]);
 
   return (
     <section className="max-w-2xl mt-10">

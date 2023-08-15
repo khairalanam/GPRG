@@ -42,7 +42,10 @@ const RolesInput: React.FC<FormState & UpdateRoles> = ({
     dispatch({ type: "SET_ROLE", payload: { id, value } });
   };
 
-  useEffect(() => updateRoles(roles), [roles, updateRoles]);
+  useEffect(() => {
+    if (JSON.stringify(roles) !== JSON.stringify(formData.roles))
+      updateRoles(roles);
+  }, [roles, updateRoles, formData]);
 
   return (
     <section className="flex flex-col mt-10 max-w-2xl">

@@ -28,10 +28,10 @@ const projectsReducer = (
 const ProjectsInput: React.FC<FormState> = ({ formData, setFormData }) => {
   const [projects, dispatch] = useReducer(projectsReducer, initialState);
 
-  useEffect(
-    () => setFormData({ ...formData, projects }),
-    [formData, setFormData, projects]
-  );
+  useEffect(() => {
+    if (JSON.stringify(projects) !== JSON.stringify(formData.projects))
+      setFormData({ ...formData, projects });
+  }, [formData, setFormData, projects]);
 
   const handleProjectChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

@@ -18,10 +18,10 @@ const IndustryTagComponent: React.FC<FormState> = ({
     }
   };
 
-  useEffect(
-    () => setFormData({ ...formData, industryTags: selectedTags }),
-    [setFormData, formData, selectedTags]
-  );
+  useEffect(() => {
+    if (JSON.stringify(selectedTags) !== JSON.stringify(formData.industryTags))
+      setFormData({ ...formData, industryTags: selectedTags });
+  }, [setFormData, formData, selectedTags]);
 
   const handleTagRemove = (tag: string) => {
     setSelectedTags(selectedTags.filter((t) => t !== tag));
