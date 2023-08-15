@@ -52,6 +52,7 @@ const MainForm = () => {
       <IndustryTagComponent formData={formData} setFormData={setFormData} />
       <button
         type="submit"
+        onClick={handleSubmit}
         className="bg-dark-blue text-white px-6 py-3 rounded-full cursor-pointer hover:bg-white hover:text-dark-blue transition-colors"
       >
         Generate Readme
