@@ -11,8 +11,10 @@ import SocialsComponent from "./FormComponents/SocialsComponent";
 import IndustryTagComponent from "./FormComponents/IndustryTagComponent";
 import { FormData } from "@/types/NormalTypes";
 import { RoleState } from "@/types/ReducerTypes";
+import { useRouter } from "next/router";
 
 const MainForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     bannerImage: "",
     name: "",
@@ -30,7 +32,8 @@ const MainForm = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("Form Data:", formData);
+    localStorage.setItem("formData", JSON.stringify(formData));
+    router.push("/profile-readme");
   };
 
   return (
