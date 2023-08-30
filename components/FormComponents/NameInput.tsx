@@ -1,7 +1,7 @@
 "use client";
 
 import { FormData, FormState } from "@/types/NormalTypes";
-import React, { useState } from "react";
+import React from "react";
 
 const NameInput: React.FC<FormState> = ({ formData, setFormData }) => {
   return (
