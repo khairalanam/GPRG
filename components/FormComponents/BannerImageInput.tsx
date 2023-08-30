@@ -1,14 +1,14 @@
 "use client";
 
+import React, { useRef } from "react";
 import { FormData, FormState } from "@/types/NormalTypes";
 import Image from "next/image";
-import React, { useState, useRef } from "react";
 
 const BannerImageInput: React.FC<FormState> = ({
   formData,
   setFormData,
 }): React.ReactElement => {
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleBannerImageChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -19,9 +19,10 @@ const BannerImageInput: React.FC<FormState> = ({
       const reader = new FileReader();
       reader.onload = () => {
         const imageUrl = reader.result as string;
-        setFormData((prev: FormData) => {
-          return { ...prev, bannerImage: imageUrl };
-        });
+        setFormData((prev: FormData) => ({
+          ...prev,
+          bannerImage: imageUrl,
+        }));
       };
       reader.onerror = () => {
         console.error("Error occurred while reading the image file.");
@@ -61,13 +62,11 @@ const BannerImageInput: React.FC<FormState> = ({
           <p>or drag and drop an image here</p>
         </div>
         {formData.bannerImage && (
-          <div className="self-center mt-4">
+          <div className="self-center mt-4 w-full overflow-hidden max-h-[calc(100vw*9/16)]">
             <Image
               src={formData.bannerImage}
               alt="Banner"
-              width={100}
-              height={100}
-              className="w-64 h-auto"
+              className="w-full h-full object-cover"
             />
           </div>
         )}
