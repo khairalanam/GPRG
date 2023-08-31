@@ -39,7 +39,7 @@ const BannerImageInput: React.FC<FormState> = ({
   };
 
   return (
-    <>
+    <section className="mt-10">
       <label htmlFor="bannerImage" className="md:text-lg lg:text-xl">
         Banner Image:
       </label>
@@ -71,7 +71,7 @@ const BannerImageInput: React.FC<FormState> = ({
           </div>
         )}
       </section>
-    </>
+    </section>
   );
 };
 
