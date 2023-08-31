@@ -11,11 +11,13 @@ import SocialsComponent from "./FormComponents/SocialsComponent";
 import IndustryTagComponent from "./FormComponents/IndustryTagComponent";
 import { FormData } from "@/types/NormalTypes";
 import { RoleState } from "@/types/ReducerTypes";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import GitHubUserNameInput from "./FormComponents/GitHubUserNameInput";
 
-const MainForm = () => {
+const MainForm: React.FC = () => {
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
+    username: "",
     bannerImage: "",
     name: "",
     roles: [],
@@ -41,6 +43,7 @@ const MainForm = () => {
       <h1 className="text-2xl font-semibold mb-4 md:text-3xl lg:text-4xl lg:mb-10">
         Fill in the details
       </h1>
+      <GitHubUserNameInput formData={formData} setFormData={setFormData} />
       <BannerImageInput formData={formData} setFormData={setFormData} />
       <NameInput formData={formData} setFormData={setFormData} />
       <RolesInput
