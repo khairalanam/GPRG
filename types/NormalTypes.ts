@@ -16,6 +16,7 @@ export interface SocialLink {
 }
 
 export interface FormData {
+  username: string;
   bannerImage: string;
   name: string;
   roles: RoleState[];
