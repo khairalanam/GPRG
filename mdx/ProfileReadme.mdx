@@ -1,0 +1,16 @@
+import getFormData from "@/utils/getFormData.ts";
+const formData = getLocalStorageFormData();
+const gitHubUserName = formData.username;
+
+import BannerImageMarkdown from "@/components//MarkdownComponents/BannerImageMarkdown.tsx";
+import NameMarkdown from "@/components//MarkdownComponents/NameMarkdown.tsx";
+import RolesMarkdown from "@/components/MarkdownComponents/RolesMarkdown.tsx";
+
+<BannerImageMarkdown bannerImage={formData.bannerImage} />
+<NameMarkdown name={formData.name} />
+
+---
+
+<RolesMarkdown roles={formData.roles} />
+
+<BioMarkdown bios={formData.bios} />
