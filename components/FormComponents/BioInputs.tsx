@@ -57,8 +57,14 @@ const BioInputs: React.FC<FormState> = ({ formData, setFormData }) => {
   return (
     <section className="flex flex-col mt-10 max-w-2xl">
       {bios.map((bio: BioState) => (
-        <div key={bio.id}>
-          <label htmlFor={bio.id} className="mb-2 md:text-lg lg:text-xl">
+        <div
+          key={bio.id}
+          className="mb-3 md:mb-4 flex flex-col md:flex-row md:items-center md:gap-2 lg:gap-4"
+        >
+          <label
+            htmlFor={bio.id}
+            className="mb-2 md:mb-0 md:text-lg lg:text-xl"
+          >
             {bio.text}
           </label>
           <input
@@ -67,7 +73,7 @@ const BioInputs: React.FC<FormState> = ({ formData, setFormData }) => {
             placeholder={bio.placeholder}
             value={bio.value}
             onChange={(event) => handleBioChange(event, bio.id)}
-            className="mb-2 bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4 md:mb-3 lg:mb-4"
+            className="bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4"
           />
         </div>
       ))}
