@@ -1,11 +1,14 @@
 import React from "react";
+import Image from "next/image";
 
-const BannerImageMarkdown: React.FC<{ bannerImage: string }> = ({
+export const BannerImageMarkdown: React.FC<{ bannerImage: string }> = ({
   bannerImage,
-}) => {
-  if (!bannerImage) return null;
-
-  return `![Banner Image](${bannerImage})`;
-};
-
-export default BannerImageMarkdown;
+}) => (
+  <div className="w-full overflow-hidden max-h-[calc(100vw * 9 / 16)]">
+    <Image
+      src={bannerImage}
+      alt="Banner"
+      className="w-full object-cover h-full"
+    />
+  </div>
+);
