@@ -5,6 +5,7 @@ const gitHubUserName = formData.username;
 import BannerImageMarkdown from "@/components//MarkdownComponents/BannerImageMarkdown.tsx";
 import NameMarkdown from "@/components//MarkdownComponents/NameMarkdown.tsx";
 import RolesMarkdown from "@/components/MarkdownComponents/RolesMarkdown.tsx";
+import BioMarkdown from "@/components/MarkdownComponents//BioMarkdown.tsx";
 
 <BannerImageMarkdown bannerImage={formData.bannerImage} />
 <NameMarkdown name={formData.name} />
@@ -13,4 +14,9 @@ import RolesMarkdown from "@/components/MarkdownComponents/RolesMarkdown.tsx";
 
 <RolesMarkdown roles={formData.roles} />
 
-<BioMarkdown bios={formData.bios} />
+<div className="flex justify-between">
+  <div className="w-2/3">
+    <BioMarkdown bios={formData.bios} />
+  </div>
+  <div className="w-1/3"> {/* Visitor badge */}</div>
+</div>
