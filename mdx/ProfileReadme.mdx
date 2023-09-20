@@ -7,6 +7,7 @@ import NameMarkdown from "@/components//MarkdownComponents/NameMarkdown.tsx";
 import RolesMarkdown from "@/components/MarkdownComponents/RolesMarkdown.tsx";
 import BioMarkdown from "@/components/MarkdownComponents//BioMarkdown.tsx";
 import ProjectsMarkdown from "@/components/MarkdownComponents/ProjectsMarkdown.tsx";
+import TechStackMarkdown from "@/components//MarkdownComponents//TechStackMarkdown.tsx";
 
 <BannerImageMarkdown bannerImage={formData.bannerImage} />
 <NameMarkdown name={formData.name} />
@@ -25,4 +26,6 @@ import ProjectsMarkdown from "@/components/MarkdownComponents/ProjectsMarkdown.t
   </div>
 </div>
 
-<ProjectsMarkdown />
+<ProjectsMarkdown projects={formData.projects} />
+
+<TechStackMarkdown techStack={formData.techStacks} />
