@@ -15,7 +15,7 @@ const GitHubUserNameInput: React.FC<FormState> = ({
       <input
         id="name"
         type="text"
-        value={formData.name}
+        value={formData.username}
         onChange={(e) =>
           setFormData((prev: FormData) => {
             return { ...prev, username: e.target.value };
