@@ -66,6 +66,8 @@ const BannerImageInput: React.FC<FormState> = ({
             <Image
               src={formData.bannerImage}
               alt="Banner"
+              width={100}
+              height={100}
               className="w-full h-full object-cover"
             />
           </div>
