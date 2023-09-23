@@ -8,7 +8,8 @@ import RolesMarkdown from "@/components/MarkdownComponents/RolesMarkdown.tsx";
 import BioMarkdown from "@/components/MarkdownComponents//BioMarkdown.tsx";
 import ProjectsMarkdown from "@/components/MarkdownComponents/ProjectsMarkdown.tsx";
 import TechStackMarkdown from "@/components//MarkdownComponents//TechStackMarkdown.tsx";
-import SocialsMarkdown from "../components//MarkdownComponents//SocialsMarkdown.tsx";
+import SocialsMarkdown from "@/components//MarkdownComponents//SocialsMarkdown.tsx";
+import IndustryTagsMarkdown from "@/components/MarkdownComponents/IndustryTagsMarkdown.tsx";
 
 <BannerImageMarkdown bannerImage={formData.bannerImage} />
 <NameMarkdown name={formData.name} />
@@ -31,4 +32,6 @@ import SocialsMarkdown from "../components//MarkdownComponents//SocialsMarkdown.
 
 <TechStackMarkdown techStack={formData.techStacks} />
 
-<SocialsMarkdown />
+<SocialsMarkdown socials={formData.socials} />
+
+<IndustryTagsMarkdown industryTags={formData.industryTags} />
