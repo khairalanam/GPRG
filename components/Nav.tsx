@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import logo from "@public/Main-Logo.svg";
 import Link from "next/link";
+import Hamburger from 'hamburger-react'
 
 const Nav: React.FC = (): React.JSX.Element => {
   const navElements: { [key: string]: string } = {
@@ -10,9 +12,11 @@ const Nav: React.FC = (): React.JSX.Element => {
     GitHub: "https://github.com/khairalanam/GPRG",
     Socials: "/socials",
   };
+  const [navbar, setNavbar] = useState<boolean>(false);
 
   return (
-    <nav className="flex bg-dark-blue px-6 md:px-10 text-white py-4 lg:px-20 lg:py-5 justify-between items-center">
+    <nav className="md:flex bg-dark-blue px-6 md:px-10 text-white py-4 lg:px-20 lg:py-5 justify-between items-center">
+      <div className="flex justify-between items-center">
       <section className="flex justify-between items-center gap-3">
         <Image
           alt="GPRG Logo"
@@ -25,10 +29,17 @@ const Nav: React.FC = (): React.JSX.Element => {
           GPRG
         </h1>
       </section>
-      <ul className="flex justify-between gap-3 md:gap-4 lg:gap-6 text-[0.75rem] md:text-[1rem]">
+      <span className="md:hidden flex items-center justify-center">
+          <Hamburger 
+            toggled={navbar}
+            toggle={() => setNavbar(!navbar)}
+            duration={0.5}/>
+      </span>
+      </div>
+      <ul className= {`pl-[2px] md:flex justify-between gap-3 md:gap-4 lg:gap-6 text-[1rem] ${navbar? "block":"hidden"}`}>
         {Object.entries(navElements).map(([key, value]) => (
-          <li key={key}>
-            <Link href={value} className="hover:text-slate-500 transition">
+          <li key={key} className="md:py-0 py-1">
+            <Link href={value} className="hover:text-slate-500 transition animate-trans-navbar-component">
               {key}
             </Link>
           </li>
