@@ -39,7 +39,7 @@ const Nav: React.FC = (): React.JSX.Element => {
       <ul className= {`pl-[2px] md:flex justify-between gap-3 md:gap-4 lg:gap-6 text-[1rem] ${navbar? "block":"hidden"}`}>
         {Object.entries(navElements).map(([key, value]) => (
           <li key={key} className="md:py-0 py-1">
-            <Link href={value} className="hover:text-slate-500 transition animate-trans-navbar-component">
+            <Link onClick={() => setNavbar(!navbar)} href={value} className="hover:text-slate-500 transition animate-trans-navbar-component">
               {key}
             </Link>
           </li>
