@@ -25,21 +25,22 @@ const Nav: React.FC = (): React.JSX.Element => {
           height={100}
           className="w-8 md:w-10 lg:w-11"
         />
-        <h1 className="font-light text-[0.75rem] md:text-[1rem] lg:font-normal lg:text-[1.25rem]">
+        <h1 className="font-light text-base lg:font-normal lg:text-[1.25rem]">
           GPRG
         </h1>
       </section>
       <span className="md:hidden flex items-center justify-center">
           <Hamburger 
             toggled={navbar}
-            toggle={() => setNavbar(!navbar)}
+            toggle={() => setNavbar(navbar => !navbar)}
             duration={0.5}/>
       </span>
       </div>
-      <ul className= {`pl-[2px] md:flex justify-between gap-3 md:gap-4 lg:gap-6 text-[1rem] ${navbar? "block":"hidden"}`}>
+      {/* The pl-[0.15rem] give some space from left in the navbar Element. As it looks better when the hamburger menu is used. */}
+      <ul className= {`pl-[0.15rem] md:flex justify-between gap-3 md:gap-4 lg:gap-6 text-base ${navbar? "block":"hidden"}`}>
         {Object.entries(navElements).map(([key, value]) => (
           <li key={key} className="md:py-0 py-1">
-            <Link onClick={() => setNavbar(!navbar)} href={value} className="hover:text-slate-500 transition animate-trans-navbar-component">
+            <Link onClick={() => setNavbar(navbar => !navbar)} href={value} className="hover:text-slate-500 transition animate-trans-navbar-component">
               {key}
             </Link>
           </li>
