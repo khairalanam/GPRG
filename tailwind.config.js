@@ -17,6 +17,15 @@ module.exports = {
         "light-blue": "#3A506B",
         "dark-blue": "#0B132B",
       },
+      keyframes: {
+        "trans-navbar": {
+          from: { opacity: "0", transform: "translateX(-2%)", width: "95%" },
+          to: { opacity: "1", transform: "translateX(0)", width: "90%" },
+        },
+      },
+      animation: {
+        "trans-navbar-component": "trans-navbar 0.4s ease-in-out 1",
+      },
     },
   },
   plugins: [],
