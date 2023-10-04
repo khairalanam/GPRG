@@ -1,31 +1,34 @@
-"use client";
+'use client'
 
-import { FormData, FormState } from "@/types/NormalTypes";
-import React from "react";
+import { FormData, FormState } from '@/types/NormalTypes'
+import React from 'react'
 
 const GitHubUserNameInput: React.FC<FormState> = ({
-  formData,
-  setFormData,
+	formData,
+	setFormData,
 }) => {
-  return (
-    <div className="flex flex-col mt-10 max-w-2xl">
-      <label htmlFor="name" className="mb-2 md:text-lg lg:text-xl">
-        GitHub Username:
-      </label>
-      <input
-        id="name"
-        type="text"
-        value={formData.username}
-        onChange={(e) =>
-          setFormData((prev: FormData) => {
-            return { ...prev, username: e.target.value };
-          })
-        }
-        className="bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4"
-        placeholder="Your name"
-      />
-    </div>
-  );
-};
+	return (
+		<div className='flex flex-col mt-10 max-w-2xl'>
+			<label htmlFor='name' className='mb-2 md:text-lg lg:text-xl'>
+				GitHub Username:
+			</label>
+			<input
+				id='name'
+				type='text'
+				value={formData.username}
+				onChange={(e) =>
+					setFormData((prev: FormData) => {
+						return { ...prev, username: e.target.value }
+					})
+				}
+				className='bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4'
+				placeholder='Your name'
+				required
+				aria-required='true'
+				aria-label='Enter Github Username'
+			/>
+		</div>
+	)
+}
 
-export default GitHubUserNameInput;
+export default GitHubUserNameInput
