@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function About(): React.JSX.Element {
   return (
-    <section className="text-white px-6 py-24 md:px-10 md:py-28 lg:px-20">
+    <section className="text-white px-6 py-10 md:px-10 md:py-14 lg:px-20">
       <h1 className="text-2xl font-semibold mb-4 md:text-3xl lg:text-4xl lg:mb-10">
         About GPRG
       </h1>
