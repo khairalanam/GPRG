@@ -15,7 +15,7 @@ const Nav: React.FC = (): React.JSX.Element => {
   const [navbar, setNavbar] = useState<boolean>(false);
 
   return (
-    <nav className="md:flex bg-dark-blue px-6 md:px-10 text-white py-4 lg:px-20 lg:py-5 justify-between items-center fixed w-full z-10 backdrop-blur-sm top-0 bg-opacity-50">
+    <nav className="md:flex bg-dark-blue px-6 md:px-10 text-white py-4 lg:px-20 lg:py-5 justify-between items-center">
       <div className="flex justify-between items-center">
       <section className="flex justify-between items-center gap-3">
         <Image
