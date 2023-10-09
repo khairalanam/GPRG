@@ -8,12 +8,13 @@ const GitHubUserNameInput: React.FC<FormState> = ({
   setFormData,
 }) => {
   return (
-    <div className="flex flex-col mt-10 max-w-2xl">
-      <label htmlFor="name" className="mb-2 md:text-lg lg:text-xl">
+    <section className="flex flex-col mt-10 max-w-2xl" role="Github Username">
+      <label htmlFor="username" className="mb-2 md:text-lg lg:text-xl">
         GitHub Username:
+        <span id="desc-username" className="sr-only">Enter your GitHub Username</span>
       </label>
       <input
-        id="name"
+        id="username"
         type="text"
         value={formData.username}
         onChange={(e) =>
@@ -22,9 +23,13 @@ const GitHubUserNameInput: React.FC<FormState> = ({
           })
         }
         className="bg-dark-blue rounded-lg px-4 py-2 md:py-3 lg:py-4"
-        placeholder="Your name"
+        aria-required='true'
+        aria-describedby="desc-username"
+        required
+        aria-live="polite"
+        aria-atomic='true'
       />
-    </div>
+    </section>
   );
 };
 
