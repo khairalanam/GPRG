@@ -3,6 +3,7 @@
 import React, { useReducer, ChangeEvent, useEffect } from "react";
 import { RoleState, Action } from "@/types/ReducerTypes";
 import { FormState, UpdateRoles } from "@/types/NormalTypes";
+import { toast } from "react-toastify";
 
 const initialState: RoleState[] = [
   { id: 1, value: "" },
@@ -27,6 +28,8 @@ const rolesReducer = (
   }
 };
 
+
+
 const RolesInput: React.FC<FormState & UpdateRoles> = ({
   formData,
   setFormData,
@@ -46,6 +49,10 @@ const RolesInput: React.FC<FormState & UpdateRoles> = ({
     if (JSON.stringify(roles) !== JSON.stringify(formData.roles))
       updateRoles(roles);
   }, [roles, updateRoles, formData]);
+
+  const isAtLeastOneRoleEntered = roles.some((role) => role.value.trim() !== "");
+  if(isAtLeastOneRoleEntered == null)
+    toast.error("Enter atleast One role") 
 
   return (
     <section className="flex flex-col mt-10 max-w-2xl">
