@@ -17,12 +17,12 @@ const TechStackComponent: React.FC<FormState> = ({ formData, setFormData }) => {
   };
 
   return (
-    <section className="max-w-2xl mt-10" aria-label='Tech Stack'>
+    <section className="max-w-fit mt-10" aria-label='Tech Stack'>
       <fieldset>
       <legend className="mb-6 md:text-lg lg:text-xl">
         Select Your Tech Stack (Click on the icon to select)
       </legend>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3  gap-4">
         {techStackOptions.map((tech) => (
           <label
             key={tech.value}

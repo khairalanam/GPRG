@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { FormData, FormState } from "@/types/NormalTypes";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 const BannerImageInput: React.FC<FormState> = ({
   formData,
@@ -15,7 +16,21 @@ const BannerImageInput: React.FC<FormState> = ({
   ) => {
     event.preventDefault();
     const file = event.target.files?.[0];
+    
     if (file) {
+      // Validate image type (e.g., allow only image files)
+      if (!file.type.startsWith("image/")) {
+        toast.error("Invalid file type. Please select an image.");
+        return;
+      }
+
+      // Validate image size (e.g., allow images up to 2MB)
+      const maxSizeInBytes = 2 * 1024 * 1024; // 2MB
+      if (file.size > maxSizeInBytes) {
+        toast.error("File size is too large. Please select a smaller image.");
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = () => {
         const imageUrl = reader.result as string;
@@ -25,7 +40,7 @@ const BannerImageInput: React.FC<FormState> = ({
         }));
       };
       reader.onerror = () => {
-        console.error("Error occurred while reading the image file.");
+        toast.error("Error occurred while reading the image file.");
       };
       reader.readAsDataURL(file);
     }
